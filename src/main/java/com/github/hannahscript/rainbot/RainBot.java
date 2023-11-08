@@ -3,6 +3,7 @@ package com.github.hannahscript.rainbot;
 import com.github.hannahscript.rainbot.untracking.TrackingRemover;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -28,6 +29,7 @@ public class RainBot extends ListenerAdapter {
         setUpKillhook(jda);
 
         jda.awaitReady();
+        jda.getPresence().setActivity(Activity.watching("your links"));
     }
     
     private static void setUpKillhook(JDA jda) {
@@ -48,6 +50,7 @@ public class RainBot extends ListenerAdapter {
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         System.out.println("API is ready");
+        
     }
 
     @Override
